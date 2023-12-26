@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './components/Header';
 import CardSection from './components/CardSection';
+import ChartSection from './components/Charts';
 
 export default class App extends Component {
   constructor() {
@@ -63,6 +64,34 @@ export default class App extends Component {
           low24={
             this.state.Data.market_data
               ? this.state.Data.market_data.low_24h["usd"]
+              : ""
+          }
+        />
+        <ChartSection
+          Id={this.state.Id}
+          priceChange24={
+            this.state.Data.market_data
+              ? this.state.Data.market_data.price_change_24h_in_currency.usd
+              : ""
+          }
+          MarketCap={
+            this.state.Data.market_data
+              ? this.state.Data.market_data.market_cap.usd
+              : ""
+          }
+          TotVol={
+            this.state.Data.market_data
+              ? this.state.Data.market_data.total_volume.usd
+              : ""
+          }
+          Circulating={
+            this.state.Data.market_data
+              ? this.state.Data.market_data["circulating_supply"]
+              : ""
+          }
+          twitterF={
+            this.state.Data.community_data
+              ? this.state.Data.community_data.twitter_followers
               : ""
           }
         />
