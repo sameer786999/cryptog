@@ -27,7 +27,14 @@ export default class App extends Component {
   };
   componentDidMount() {
     this.fetchData();
+    this.interval = setInterval(() => this.fetchData(), 2000);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  
   render() {
     return (
       <div>
